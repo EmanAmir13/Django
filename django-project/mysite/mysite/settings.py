@@ -35,12 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "polls"
 ]
-# EXTERNAL_APPS = [
-#     "polls"
-# ]
-# INSTALLED_APPS += EXTERNAL_APPS
+EXTERNAL_APPS = [
+    "home"
+]
+INSTALLED_APPS += EXTERNAL_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
