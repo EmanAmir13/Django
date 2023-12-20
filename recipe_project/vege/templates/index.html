@@ -26,4 +26,34 @@
         <button type="submit" class="btn btn-success btn-block">Add Recipe</button>
     </form>
 </div>
+
+
+<h2>Recipe Details</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Recipe Name</th>
+        <th>Recipe Description</th>
+        <th>Recipe Image</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for recipe in recipes %}
+    <tr>
+        <td>{{recipe.recipe_name}}</td>
+        <td>{{recipe.recipe_description}}</td>
+        <td>
+            <img src="media/{{recipe.recipe_image}}" alt="Recipe Image" style="max-width: 100px;">
+        <td>
+            <a href="/api/v1/del_recipes/{{recipe.id}}/" class="btn btn-danger">Delete</a>
+        </td>
+        </td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}
