@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02039ec6-91d8-414f-a4d4-5f98633a69be" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/vege/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vege/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/Django.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Django.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
@@ -530,6 +532,12 @@
       <change beforePath="$PROJECT_DIR$/../main.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/recipe/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+>>>>>>> 6ea9923b69928d36a1549aaa699a8478dc6788d9
       <change beforePath="$PROJECT_DIR$/vege/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vege/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
