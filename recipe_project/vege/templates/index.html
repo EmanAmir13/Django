@@ -24,13 +24,28 @@
         </div>
 
         <button type="submit" class="btn btn-success btn-block">Add Recipe</button>
+
     </form>
 </div>
 
 
-<h2>Recipe Details</h2>
+<div class="container mt-4 card p-3 shadow-lg">
+    <h2 class="mb-4">Search Recipes</h2>
 
-<table>
+    <form class="row" action="/" method="GET">
+        <div class="col-8">
+            <input name="search" type="search" class="form-control" id="searchInput" placeholder="Search...">
+        </div>
+        <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block" id="searchBtn">Search</button>
+        </div>
+    </form>
+
+</div>
+
+<h2 class="mt-4">Recipe Details</h2> <!-- Added margin-top -->
+
+<table class="table">
     <thead>
     <tr>
         <th>Recipe Name</th>
@@ -42,15 +57,15 @@
     <tbody>
     {% for recipe in recipes %}
     <tr>
-        <td>{{recipe.recipe_name}}</td>
-        <td>{{recipe.recipe_description}}</td>
+        <td>{{ recipe.recipe_name }}</td>
+        <td>{{ recipe.recipe_description }}</td>
         <td>
-            <img src="media/{{recipe.recipe_image}}" alt="Recipe Image" style="max-width: 100px;">
+            <img src="media/{{ recipe.recipe_image }}" alt="Recipe Image" style="max-width: 100px;">
+        </td>
         <td>
-            <a href="/api/v1/del_recipes/{{recipe.id}}/" class="btn btn-danger">Delete</a>
+            <a href="/api/v1/del_recipes/{{ recipe.id }}/" class="btn btn-danger m-2">Delete</a>
+            <a href="/api/v1/update_recipes/{{ recipe.id }}/" class="btn btn-success">Update</a>
         </td>
-        </td>
-
     </tr>
     {% endfor %}
     </tbody>
