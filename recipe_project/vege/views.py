@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import *
-from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
-
+@login_required(login_url="/api/v1/login/")
 def recipes(request):
     if request.method == 'POST':
         data = request.POST
@@ -30,7 +32,7 @@ def recipes(request):
 
     return render(request, "index.html", context=context)
 
-
+@login_required(login_url="/api/v1/login/")
 def update_recipes(request, id):
     queryset = Recipe.objects.get(id=id)
 
@@ -51,8 +53,64 @@ def update_recipes(request, id):
     context = {'recipe': queryset}
     return render(request, "update_recipe.html", context=context)
 
-
+@login_required(login_url="/api/v1/login/")
 def del_recipes(request, id):
     queryset = Recipe.objects.get(id=id)
     queryset.delete()
     return redirect('/')
+
+
+def login_page(request):
+    if request.method == 'POST':
+        data = request.POST
+
+        username = data.get('username')
+        password = data.get('password')
+
+        if not User.objects.filter(username=username).exists():
+            messages.error(request, "Invalid Username")
+            return redirect('/api/v1/login/')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is None:
+            messages.error(request, "Invalid Password")
+            return redirect('/api/v1/login/')
+        else:
+            login(request, user)
+            return redirect('/')
+
+    return render(request, "login.html")
+
+@login_required(login_url="/api/v1/login/")
+def logout_page(request):
+    logout(request)
+    return redirect('/api/v1/login/')
+
+
+def register(request):
+    if request.method == 'POST':
+        data = request.POST
+
+        first_name = data.get('first_name')
+        last_name = data.get('last_name')
+        username = data.get('username')
+        password = data.get('password')
+
+        user = User.objects.filter(username=username)
+        if user.exists():
+            messages.add_message(request, messages.INFO, "Username Already taken")
+            return redirect('/api/v1/register/')
+
+        user = User.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            username=username
+        )
+
+        user.set_password(password)
+        user.save()
+        messages.add_message(request, messages.SUCCESS, "Registration successful. You can now log in.")
+        return redirect('/api/v1/register/')
+
+    return render(request, "register.html")

@@ -25,6 +25,9 @@ urlpatterns = [
     path('', recipes, name='recipes'),
     path('api/v1/update_recipes/<id>/', update_recipes, name='update_recipes'),
     path('api/v1/del_recipes/<id>/', del_recipes, name='del_recipes'),
+    path('api/v1/login/', login_page, name='login_page'),
+    path('api/v1/logout/', logout_page, name='logout_page'),
+    path('api/v1/register/', register, name='register'),
     path('api/v1/admin/', admin.site.urls),
 ]
 
