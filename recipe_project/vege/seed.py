@@ -21,7 +21,7 @@ def seed_db(n=10) -> None:
 
             student_obj = Student.objects.create(
                 department=department,
-                student_id=student_id,
+                student_id=student_id_obj,
                 student_name=student_name,
                 student_email=student_email,
                 student_age=student_age,
