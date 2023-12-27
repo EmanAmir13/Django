@@ -1,4 +1,4 @@
 from django.db import models
 
-class PostCURD(models.model):
+class PostCURD(models.Model):
     pass
