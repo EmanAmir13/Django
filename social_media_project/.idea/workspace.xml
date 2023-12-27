@@ -5,6 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cead84a-1b0a-40d7-b06a-6d88666ad9b5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social_site/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social_site/models/post_crud.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social_site/templates/v1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/social_site/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/social_site/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/social_site/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/Django.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Django.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
@@ -534,17 +543,19 @@
       <change beforePath="$PROJECT_DIR$/../recipe_project/vege/seed.py" beforeDir="false" afterPath="$PROJECT_DIR$/../recipe_project/vege/seed.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../recipe_project/vege/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../recipe_project/vege/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../recipe_project/vege/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../recipe_project/vege/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_media_project/manage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_media_project/social_media_project/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_media_project/social_media_project/asgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_media_project/social_media_project/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_media_project/social_media_project/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_media_project/social_media_project/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -564,6 +575,15 @@
     "git-widget-placeholder": "django-project"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Django\social_media_project\social_site\models" />
+      <recent name="D:\Django\social_media_project\social_site\templates\v1" />
+      <recent name="D:\Django\social_media_project\social_site" />
+      <recent name="D:\Django\social_media_project" />
+      <recent name="D:\Django\social_media_project\social_media" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
