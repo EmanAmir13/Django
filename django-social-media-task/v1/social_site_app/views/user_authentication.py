@@ -1,5 +1,6 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from v1.social_site_app.forms import UserAdminCreationForm
@@ -40,7 +41,7 @@ def custom_login(request):
 
     return render(request, 'v1/login.html')
 
-
+@login_required
 def user_logout(request):
     logout(request)
     return redirect('/')

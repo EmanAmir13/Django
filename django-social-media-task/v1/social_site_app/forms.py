@@ -9,4 +9,11 @@ class UserAdminCreationForm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['email']
+        fields = ['first_name', 'last_name', 'email', 'password1', 'password2', 'mobile']
+
+        def save(self, commit=True):
+            user = super().save(commit=False)
+            user.mobile = self.cleaned_data.get('mobile')
+            if commit:
+                user.save()
+            return user
