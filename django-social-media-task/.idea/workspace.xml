@@ -5,18 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="793db0ac-252b-4dd2-961b-df072b694fa2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/v1/social_site_app/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v1/social_site_app/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v1/urls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practicePython/.idea/practicePython.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../social_media_project/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../social_media_project/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../social_media_project/.idea/social_media_project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../social_media_project/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../social_media_project/v1/social_site/views/user_authentication.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social_site_app/models/user_email.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social_site_app/templates/v1/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social_site_app/templates/v1/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social_site_app/templates/v1/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social_site_app/templates/v1/update_user_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social_site_app/templates/v1/user_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social_site_app/templates/v1/welcome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/scripts/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/social_site_app/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/social_site_app/views/profile_view.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/social_site_app/views/user_authentication.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emailVerification/email_app/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emailVerification/email_app/templates/edit_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emailVerification/email_app/templates/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emailVerification/email_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/Django.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Django.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_media/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_media/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_media/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_media/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/models/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/social_site_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/social_site_app/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/urls" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/models/profile.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/AUTHORS.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/INSTALLER" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/LICENSE.txt" beforeDir="false" />
@@ -542,44 +560,82 @@
       <change beforePath="$PROJECT_DIR$/../recipe_project/vege/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../recipe_project/vege/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../recipe_project/vege/seed.py" beforeDir="false" afterPath="$PROJECT_DIR$/../recipe_project/vege/seed.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../recipe_project/vege/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../recipe_project/vege/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../recipe_project/vege/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../recipe_project/vege/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../recipe_project/vege/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../recipe_project/vege/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../social_media_project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../social_media_project/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../social_media_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../social_media_project/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../social_media_project/social_media/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../social_media_project/social_media/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../social_media_project/social_media/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../social_media_project/social_media/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social_media_project/social_site/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social_media_project/social_site/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social_media_project/social_site/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social_media_project/social_site/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social_media_project/social_site/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social_media_project/social_site/models/post_crud.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social_media_project/social_site/models/user_authentication.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social_media_project/social_site/templates/v1/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../social_media_project/v1/social_site/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../social_media_project/v1/social_site/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social_media_project/v1/social_site/views/user_authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/../social_media_project/v1/social_site/views/user_authentication.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2a9oaTW6ubCMaJ2mZRu2mahfWJ4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "social-media-site-django"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;social-media-site-django&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Django/django-social-media-task/manage.py&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Django\django-social-media-task\social_site_app\templates\v1" />
+      <recent name="D:\Django\django-social-media-task\social_site_app\templates" />
+      <recent name="D:\Django\django-social-media-task\social_site_app\templates\v1\registration" />
+      <recent name="D:\Django\django-social-media-task\v1" />
+      <recent name="D:\Django\django-social-media-task\v1\scripts" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="django-social-media-task" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (django-social-media-task)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

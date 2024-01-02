@@ -1,0 +1,62 @@
+{% extends 'v1/base.html' %}
+
+{% block start %}
+
+<div class="container mt-5 card p-3 shadow-lg">
+    <h2 class="mb-4">Register</h2>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <form method="post" action="{% url 'register_user' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="firstname">First Name:</label>
+            <input type="text" class="form-control" id="firstname" name="first_name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password1">Password:</label>
+            <input type="password" class="form-control" id="password1" name="password1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password2">Confirm Password:</label>
+            <input type="password" class="form-control" id="password2" name="password2" required>
+        </div>
+
+        <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" required>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" id="address" name="address" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <p>Already have an account? <a href="/">Login</a></p>
+    </form>
+</div>
+
+{% endblock %}
