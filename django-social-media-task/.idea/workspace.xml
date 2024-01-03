@@ -5,10 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="793db0ac-252b-4dd2-961b-df072b694fa2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/social_site_app/templates/v1/view_posts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/Django.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Django.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/models/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/models/post.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/create_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/create_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/delete_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/delete_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/edit_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/edit_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/view_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/view_own_posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/welcome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/social_site_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/social_site_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/social_site_app/views/post_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/views/post_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/AUTHORS.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/INSTALLER" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/LICENSE.txt" beforeDir="false" />

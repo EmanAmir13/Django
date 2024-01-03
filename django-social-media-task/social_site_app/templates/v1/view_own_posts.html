@@ -1,0 +1,21 @@
+{% extends 'v1/base.html' %}
+
+{% block start %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Your Posts</h2>
+        {% for post in posts %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p class="card-text">{{ post.post_explanation }}</p>
+                    {% if post.post_image %}
+                        <img src="{{ post.post_image.url }}" class="img-fluid mb-3" alt="Post Image" style="max-height: 200px; object-fit: cover;">
+                    {% endif %}
+                    <div class="btn-group" role="group" aria-label="Post Actions">
+                        <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

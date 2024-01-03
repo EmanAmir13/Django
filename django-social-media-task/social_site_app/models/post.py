@@ -8,7 +8,8 @@ def generate_uuid_filename(instance, filename):
     img_extention = filename.split('.')[-1]
     # Generate a unique UUID
     unique_filename = f"{uuid.uuid4().hex}.{img_extention}"
-    return f"post_images/{unique_filename}"
+    user_email = instance.user.email
+    return f"post_images/{user_email}/{unique_filename}"
 
 
 class UserPost(models.Model):

@@ -14,7 +14,9 @@ urlpatterns = [
     path('app/v1/profile/edit/', edit_profile, name='edit_profile'),
     path('app/v1/profile/delete/', delete_profile, name='delete_profile'),
     path('app/v1/post/create/', create_post, name='create_post'),
-    path('app/v1/post/view/', view_post, name='view_post'),
-    path('app/v1/post/edit/', edit_post, name='edit_post'),
-    path('app/v1/post/delete/', delete_post, name='delete_post'),
+    path('app/v1/post/view/', view_posts, name='view_posts'),
+    path('app/v1/post/edit/<int:post_id>/', edit_post, name='edit_post'),
+    path('app/v1/post/delete/<int:post_id>/', delete_post, name='delete_post'),
+    path('app/v1/post/view_own_posts/', view_own_posts, name='view_own_posts'),
+
 ]

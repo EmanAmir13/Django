@@ -1,58 +1,61 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
-from social_site_app.models.profile import UserProfile
-from v1.social_site_app.forms import UserProfileForm
+from social_site_app.models import UserPost
+from v1.social_site_app.forms import UserPostForm
 
 
-@login_required(login_url='/')
+@login_required
 def create_post(request):
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES)
+        form = UserPostForm(request.POST, request.FILES)
         if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = request.user
-            profile.save()
-            messages.success(request, 'Profile created successfully.')
-            return redirect('view_profile')
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            return redirect('view_posts')
     else:
-        form = UserProfileForm()
+        form = UserPostForm()
 
-    return render(request, 'v1/create_profile.html', {'form': form})
-
-
-@login_required(login_url='/')
-def view_post(request):
-    profile = get_object_or_404(UserProfile, user=request.user)
-    return render(request, 'v1/view_profile.html', {'profile': profile})
+    return render(request, 'v1/create_post.html', {'form': form})
 
 
-@login_required(login_url='/')
-def edit_post(request):
-    profile, created = UserProfile.objects.get_or_create(user=request.user)
+@login_required
+def view_posts(request):
+    # Display all posts
+    posts = UserPost.objects.all().order_by('-id')
+    return render(request, 'v1/view_posts.html', {'posts': posts})
+
+
+
+@login_required
+def view_own_posts(request):
+    # Display posts only from the logged-in user
+    posts = UserPost.objects.filter(user=request.user).order_by('-id')
+    return render(request, 'v1/view_own_posts.html', {'posts': posts})
+
+
+@login_required
+def edit_post(request, post_id):
+    post = get_object_or_404(UserPost, id=post_id, user=request.user)
 
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=profile)
+        form = UserPostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
-            if created:
-                messages.success(request, 'Profile created successfully.')
-            else:
-                messages.success(request, 'Profile updated successfully.')
-            return redirect('view_profile')
+            return redirect('view_own_posts')
     else:
-        form = UserProfileForm(instance=profile)
+        form = UserPostForm(instance=post)
 
-    return render(request, 'v1/edit_profile.html', {'form': form})
+    return render(request, 'v1/edit_post.html', {'form': form, 'post': post})
 
 
-@login_required(login_url='/')
-def delete_post(request):
-    profile = get_object_or_404(UserProfile, user=request.user)
+@login_required
+def delete_post(request, post_id):
+    post = get_object_or_404(UserPost, id=post_id, user=request.user)
+
     if request.method == 'POST':
-        profile.delete()
-        messages.success(request, 'Profile deleted successfully.')
-        return redirect('welcome')
+        post.delete()
+        return redirect('view_own_posts')
 
-    return render(request, 'v1/delete_profile.html', {'profile': profile})
+    return render(request, 'v1/delete_post.html', {'post': post})

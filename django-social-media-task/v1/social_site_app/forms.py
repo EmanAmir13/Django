@@ -4,6 +4,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
 from social_site_app.models.profile import UserProfile
+from social_site_app.models.post import UserPost
 
 
 class UserAdminCreationForm(UserCreationForm):
@@ -31,5 +32,5 @@ class UserProfileForm(forms.ModelForm):
 
 class UserPostForm(forms.ModelForm):
     class Meta:
-        model = UserProfile
-        fields = ['post_explanation', 'image']
+        model = UserPost
+        fields = ['post_explanation', 'post_image']

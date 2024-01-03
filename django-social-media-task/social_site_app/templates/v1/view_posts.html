@@ -1,0 +1,24 @@
+{% extends 'v1/base.html' %}
+
+{% block start %}
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">View Posts</h2>
+        <div class="row justify-content-center">
+            {% for post in posts %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">{{ post.user.first_name }}</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text">{{ post.post_explanation }}</p>
+                            {% if post.post_image %}
+                                <img src="{{ post.post_image.url }}" class="img-fluid rounded" alt="Post Image" style="max-height: 200px; object-fit: cover;">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

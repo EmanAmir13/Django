@@ -1,0 +1,12 @@
+{% extends 'v1/base.html' %}
+
+{% block start %}
+    <div class="container mt-5">
+        <h2>Create Post</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Share Post</button>
+        </form>
+    </div>
+{% endblock %}
