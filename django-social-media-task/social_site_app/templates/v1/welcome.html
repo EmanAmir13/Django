@@ -1,17 +1,29 @@
 {% extends 'v1/base.html' %}
 
 {% block start %}
-  <h1>Hi</h1>
+<div class="row">
+    <div class="col-md-3">
+        <!-- Sidebar -->
+        <div class="list-group">
+            {% if user_profile %}
+            <a href="{% url 'view_profile' %}">View Profile</a>
+            {% else %}
+            <a href="{% url 'create_profile' %}">Create Profile</a>
+            {% endif %}
+            <!-- Add more sidebar links as needed -->
+        </div>
+    </div>
 
-  {% if user.is_authenticated %}
-    <p>Welcome, {{ user.email }}!</p>
-    <a href="{% url 'user_logout' %}">Logout</a>
-  {% else %}
-    <p>You are not logged in.</p>
-    <form method="post" action="{% url 'register_user' %}">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Register</button>
-    </form>
-  {% endif %}
+
+    <div class="col-md-9">
+        <!-- Main Content -->
+        <h1>Hi</h1>
+
+        {% if user.is_authenticated %}
+        <p>Welcome, {{ user.email }}!</p>
+        {% else %}
+        <p>You are not logged in.</p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

@@ -1,24 +1,26 @@
 import uuid
 from django.db import models
-from django.contrib.auth.models import User
-import os
+from django.contrib.auth import get_user_model
 
 
-# def generate_filename(instance, filename):
-#     _, extension = os.path.splitext(filename)
-#     unique_filename = f"{uuid.uuid4()}{extension}"
-#     return os.path.join('profile_images', unique_filename)
-#
-#
-# class Profile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True,
-#                                 related_name='profile')
-#     bio = models.TextField(blank=True)
-#     image = models.ImageField(upload_to=generate_filename, default='profile_images/default_user_image.png')
-#     address = models.CharField(max_length=100, blank=True)
+def generate_uuid_filename(instance, filename):
+    # Get the file extension from the original filename
+    img_extention = filename.split('.')[-1]
+    # Generate a unique UUID
+    unique_filename = f"{uuid.uuid4().hex}.{img_extention}"
+    return f"profile_images/{unique_filename}"
 
-    # Specify the REQUIRED_FIELDS attribute
-    # REQUIRED_FIELDS = ['username']
 
-    # def __str__(self):
-    #     return f'{self.username} Profile'
+class UserProfile(models.Model):
+    '''
+       This model represents additional information about a user, such as bio,
+       profile image, and address. The user field establishes a one-to-one
+       relationship with the built-in user model.
+    '''
+    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
+    bio = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to=generate_uuid_filename, blank=True, null=True)
+    address = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.user.email

@@ -1,5 +1,9 @@
 from django.contrib.auth import get_user_model
+from django import forms
+
 from django.contrib.auth.forms import UserCreationForm
+
+from social_site_app.models.profile import UserProfile
 
 
 class UserAdminCreationForm(UserCreationForm):
@@ -17,3 +21,9 @@ class UserAdminCreationForm(UserCreationForm):
             if commit:
                 user.save()
             return user
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['bio', 'image', 'address']

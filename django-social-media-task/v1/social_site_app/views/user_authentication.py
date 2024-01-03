@@ -3,11 +3,15 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
+
+from social_site_app.models.profile import UserProfile
 from v1.social_site_app.forms import UserAdminCreationForm
 
 
+@login_required(login_url='/')
 def welcome(request):
-    return render(request, "v1/welcome.html")
+    user_profile = UserProfile.objects.filter(user=request.user).first()
+    return render(request, 'v1/welcome.html', {'user_profile': user_profile})
 
 
 def register_user(request):
@@ -40,6 +44,7 @@ def custom_login(request):
             return redirect(reverse('custom_login'))
 
     return render(request, 'v1/login.html')
+
 
 @login_required
 def user_logout(request):

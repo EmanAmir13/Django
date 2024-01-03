@@ -1,44 +1,64 @@
-# # social_site_app/views.py
-# from django.shortcuts import render, redirect, get_object_or_404
-# from django.contrib.auth.decorators import login_required
-# from django.contrib import messages
-# # from social_site_app.models import Profile
-# from v1.social_site_app.forms import ProfileForm
-#
-#
-# @login_required(login_url="/")
-# def view_profile(request, user_id=None):
-#     if user_id is not None:
-#         profile = get_object_or_404(Profile, user_id=user_id)
-#     else:
-#         profile = request.user.profile
-#
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST, request.FILES, instance=profile)
-#         if form.is_valid():
-#             form.save()
-#             user = profile.user
-#             return redirect('view_profile', user_id=user.id)
-#     else:
-#         form = ProfileForm(instance=profile)
-#
-#     context = {'profile': profile, 'form': form}
-#     return render(request, "v1/user_profile.html", context=context)
-#
-#
-# @login_required(login_url="/")
-# def update_profile(request, id):
-#     profile = Profile.objects.get(id=id)
-#
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST, request.FILES, instance=profile)
-#         if form.is_valid():
-#             form.save()
-#             user = profile.user
-#             return redirect('view_profile', user_id=user.id)
-#
-#     else:
-#         form = ProfileForm(instance=profile)
-#
-#     context = {'profile': profile, 'form': form}
-#     return render(request, "v1/update_user_profile.html", context=context)
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+
+from social_site_app.models.profile import UserProfile
+from v1.social_site_app.forms import UserProfileForm
+
+
+@login_required(login_url='/')
+def create_profile(request):
+    existing_profile = UserProfile.objects.filter(user=request.user).first()
+
+    if existing_profile:
+        messages.warning(request, 'Profile already exists. Edit your profile instead.')
+        return redirect('edit_profile')
+
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            messages.success(request, 'Profile created successfully.')
+            return redirect('view_profile')
+    else:
+        form = UserProfileForm()
+
+    return render(request, 'v1/create_profile.html', {'form': form})
+
+
+@login_required(login_url='/')
+def view_profile(request):
+    profile = get_object_or_404(UserProfile, user=request.user)
+    return render(request, 'v1/view_profile.html', {'profile': profile})
+
+
+@login_required(login_url='/')
+def edit_profile(request):
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            if created:
+                messages.success(request, 'Profile created successfully.')
+            else:
+                messages.success(request, 'Profile updated successfully.')
+            return redirect('view_profile')
+    else:
+        form = UserProfileForm(instance=profile)
+
+    return render(request, 'v1/edit_profile.html', {'form': form})
+
+
+@login_required(login_url='/')
+def delete_profile(request):
+    profile = get_object_or_404(UserProfile, user=request.user)
+    if request.method == 'POST':
+        profile.delete()
+        messages.success(request, 'Profile deleted successfully.')
+        return redirect('welcome')
+
+    return render(request, 'v1/delete_profile.html', {'profile': profile})
