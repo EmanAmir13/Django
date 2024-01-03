@@ -1,5 +1,6 @@
 from django.urls import path, include
 
+from .views import *
 from .views.user_authentication import *
 from .views.profile_view import *
 
@@ -12,4 +13,8 @@ urlpatterns = [
     path('app/v1/profile/view/', view_profile, name='view_profile'),
     path('app/v1/profile/edit/', edit_profile, name='edit_profile'),
     path('app/v1/profile/delete/', delete_profile, name='delete_profile'),
+    path('app/v1/post/create/', create_post, name='create_post'),
+    path('app/v1/post/view/', view_post, name='view_post'),
+    path('app/v1/post/edit/', edit_post, name='edit_post'),
+    path('app/v1/post/delete/', delete_post, name='delete_post'),
 ]
