@@ -13,7 +13,7 @@ def create_post(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
-            return redirect('view_posts')
+            return redirect('welcome')
     else:
         form = UserPostForm()
 
@@ -25,7 +25,6 @@ def view_posts(request):
     # Display all posts
     posts = UserPost.objects.all().order_by('-id')
     return render(request, 'v1/view_posts.html', {'posts': posts})
-
 
 
 @login_required
