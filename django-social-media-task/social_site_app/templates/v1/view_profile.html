@@ -1,11 +1,21 @@
 {% extends 'v1/base.html' %}
 
 {% block start %}
-<h2>View Profile</h2>
-<p>Name: {{ profile.name }}</p>
-<p>Bio: {{ profile.bio }}</p>
-<p>Address: {{ profile.address }}</p>
-<img src="{{ profile.image.url }}" alt="Profile Image">
-<a href="{% url 'edit_profile' %}">Edit Profile</a>
-<a href="{% url 'delete_profile' %}">Delete Profile</a>
+    <div class="container mt-5">
+        <h2 class="text-info">View Profile</h2>
+        <div class="mb-3">
+            <strong>Name:</strong> {{ profile.name }}
+        </div>
+        <div class="mb-3">
+            <strong>Bio:</strong> {{ profile.bio }}
+        </div>
+        <div class="mb-3">
+            <strong>Address:</strong> {{ profile.address }}
+        </div>
+        <img src="{{ profile.image.url }}" class="img-fluid" alt="Profile Image">
+        <div class="mt-3">
+            <a href="{% url 'edit_profile' %}" class="btn btn-warning">Edit Profile</a>
+            <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete Profile</a>
+        </div>
+    </div>
 {% endblock %}
