@@ -1,0 +1,77 @@
+<!-- v1/users_list.html -->
+{% extends 'v1/base.html' %}
+
+{% block start %}
+<div class="container mt-5">
+    <h2>User List</h2>
+    <ul>
+        {% for other_user in users %}
+        {% if other_user.userprofile %}
+        <li>
+            <a href="{% url 'view_other_profile' email=other_user.email %}">{{ other_user.email }}</a>
+
+            <button class="follow-btn btn btn-primary" data-email="{{ other_user.email }}">
+                Follow
+            </button>
+            <button class="unfollow-btn btn btn-danger" data-email="{{ other_user.email }}" style="display:none;">
+                Unfollow
+            </button>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Add the following script to handle dynamic button changes -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.follow-btn, .unfollow-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const email = this.getAttribute('data-email');
+                console.log(`Button clicked for user with email: ${email}`);
+
+                const followBtn = document.querySelector(`.follow-btn[data-email="${email}"]`);
+                const unfollowBtn = document.querySelector(`.unfollow-btn[data-email="${email}"]`);
+
+                let url, method;
+                if (followBtn.style.display !== 'none') {
+                    url = `{% url 'follow_profile' email='__email__' %}`;
+                    method = 'POST';
+                } else {
+                    url = `{% url 'unfollow_profile' email='__email__' %}`;
+                    method = 'DELETE';  // Change the method to DELETE for unfollow
+                }
+
+                // Get CSRF token from cookies
+                const csrftoken = document.cookie.match(/csrftoken=([^ ;]+)/)[1];
+
+                fetch(url.replace('__email__', email), {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrftoken,
+                    },
+                    credentials: 'include',
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log(`Successfully performed action for user with email: ${email}`);
+                            if (followBtn.style.display !== 'none') {
+                                followBtn.style.display = 'none';
+                                unfollowBtn.style.display = 'inline-block';
+                            } else {
+                                followBtn.style.display = 'inline-block';
+                                unfollowBtn.style.display = 'none';
+                            }
+                        } else {
+                            console.error(`Failed to perform action for user with email: ${email}`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(`Error while performing action for user with email: ${email}`, error);
+                    });
+            });
+        });
+    });
+</script>
+{% endblock %}

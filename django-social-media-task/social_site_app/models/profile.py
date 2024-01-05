@@ -18,6 +18,7 @@ class UserProfile(models.Model):
        relationship with the built-in user model.
     '''
     user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
+    followers = models.ManyToManyField(get_user_model(), related_name='following', blank=True)
     bio = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to=generate_uuid_filename, blank=True, null=True)
     address = models.CharField(max_length=255, blank=True, null=True)

@@ -1,0 +1,29 @@
+<!-- v1/view_other_user_profile.html -->
+{% extends 'v1/base.html' %}
+
+{% block start %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>{{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</h2>
+            <p>Email: {{ user_profile.user.email }}</p>
+            <p>Bio: {{ user_profile.bio }}</p>
+            <p>Address: {{ user_profile.address }}</p>
+            {% if user_profile.image %}
+            <img src="{{ user_profile.image.url }}" alt="Profile Picture" class="img-fluid">
+            {% else %}
+            <p>No profile picture available</p>
+            {% endif %}
+        </div>
+
+        <div class="col-md-6">
+            <h3>Followers: {{ user_profile.followers.count }}</h3>
+            <ul>
+                {% for follower in user_profile.followers.all %}
+                    <li>{{ follower.email }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

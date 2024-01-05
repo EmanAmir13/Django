@@ -6,10 +6,12 @@
         <!-- Sidebar -->
         <div class="list-group">
             {% if user_profile %}
-            <p></p>
+            <!--                <a href="{% url 'view_profile' %}" class="btn btn-secondary">View Profile</a>-->
+            <p>Welcome to Your dashboard</p>
             {% else %}
-            <a href="{% url 'create_profile' %}"  class="btn btn-secondary" >Create Profile</a>
+            <a href="{% url 'create_profile' %}" class="btn btn-secondary">Create Profile</a>
             {% endif %}
+            <a href="{% url 'users_list' %}" class="btn btn-secondary">View Users</a>
         </div>
 
         <h2>Hi</h2>
@@ -41,5 +43,6 @@
             </form>
         </div>
     </div>
+
 </div>
 {% endblock %}

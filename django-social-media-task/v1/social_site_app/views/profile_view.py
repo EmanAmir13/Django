@@ -1,9 +1,16 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 
 from social_site_app.models.profile import UserProfile
-from v1.social_site_app.forms import UserProfileForm
+from v1.social_site_app.forms import UserProfileForm, UserPostForm
+
+
+@login_required
+def users_list(request):
+    users = get_user_model().objects.exclude(id=request.user.id)
+    return render(request, 'v1/users_list.html', {'users': users})
 
 
 @login_required(login_url='/')
@@ -34,6 +41,8 @@ def view_profile(request):
     return render(request, 'v1/view_profile.html', {'profile': profile})
 
 
+# views.py
+
 @login_required(login_url='/')
 def edit_profile(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
@@ -42,6 +51,11 @@ def edit_profile(request):
         form = UserProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
+
+            # Add logic to handle editing the list of users the user is following
+            followers_ids = request.POST.getlist('followers')
+            profile.followers.set(followers_ids)
+
             if created:
                 messages.success(request, 'Profile created successfully.')
             else:
@@ -53,10 +67,29 @@ def edit_profile(request):
     return render(request, 'v1/edit_profile.html', {'form': form})
 
 
+# views.py
+@login_required(login_url='/')
+def view_other_profile(request, email):
+    # Check if the requested email belongs to the logged-in user
+    if request.user.is_authenticated and request.user.email == email:
+        # If it's the logged-in user, show their own profile
+        user_profile = UserProfile.objects.get(user=request.user)
+    else:
+        # If it's another user, show their profile
+        user = get_object_or_404(get_user_model(), email=email)
+        user_profile = get_object_or_404(UserProfile, user=user)
+
+    return render(request, 'v1/other_user_profile.html', {'user_profile': user_profile})
+
+
 @login_required(login_url='/')
 def delete_profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
+
     if request.method == 'POST':
+        # Handle unfollowing logic before deleting the profile
+        request.user.userprofile.followers.clear()
+
         profile.delete()
         messages.success(request, 'Profile deleted successfully.')
         return redirect('welcome')

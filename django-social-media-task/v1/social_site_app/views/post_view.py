@@ -19,11 +19,12 @@ def create_post(request):
 
     return render(request, 'v1/create_post.html', {'form': form})
 
-
 @login_required
 def view_posts(request):
-    # Display all posts
-    posts = UserPost.objects.all().order_by('-id')
+    # Display posts from all users that the logged-in user is following
+    following_users = request.user.userprofile.followers.all()
+    posts = UserPost.objects.filter(user__in=following_users).order_by('-id')
+
     return render(request, 'v1/view_posts.html', {'posts': posts})
 
 
