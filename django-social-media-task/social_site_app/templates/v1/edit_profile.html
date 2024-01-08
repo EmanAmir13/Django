@@ -1,27 +1,23 @@
 {% extends 'v1/base.html' %}
 
 {% block start %}
-    <div class="container mt-5">
-        <h2 class="text-primary">Edit Profile</h2>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group">
-                {{ form.name.label_tag }}
-                {{ form.name }}
-            </div>
-            <div class="form-group">
-                {{ form.bio.label_tag }}
-                {{ form.bio }}
-            </div>
-            <div class="form-group">
-                {{ form.image.label_tag }}
-                {{ form.image }}
-            </div>
-            <div class="form-group">
-                {{ form.address.label_tag }}
-                {{ form.address }}
-            </div>
-            <button type="submit" class="btn btn-primary">Save Changes</button>
-        </form>
-    </div>
+<div class="container mt-5">
+    <h2 class="text-primary">Edit Profile</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.bio.label_tag }}
+            {{ form.bio }}
+        </div>
+        <div class="form-group">
+            {{ form.image.label_tag }}
+            {{ form.image }}
+        </div>
+        <div class="form-group">
+            {{ form.address.label_tag }}
+            {{ form.address }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
 {% endblock %}

@@ -54,9 +54,9 @@
         {% if user.is_authenticated %}
         {% if user_profile %}
         <a href="{% url 'view_profile' %}" class="btn btn-primary">View Profile</a>
-        {% endif %}
         <a href="{% url 'view_posts' %}" class="btn btn-primary">View Feed</a>
         <a href="{% url 'view_own_posts' %}" class="btn btn-primary">View Your Posts</a>
+        {% endif %}
 
         <a href="{% url 'user_logout' %}" class="logout-btn">Logout</a>
         {% endif %}

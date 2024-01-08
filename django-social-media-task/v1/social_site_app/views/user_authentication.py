@@ -14,7 +14,6 @@ def welcome(request):
     return render(request, 'v1/welcome.html', {'user_profile': user_profile})
 
 
-
 def register_user(request):
     form = UserAdminCreationForm()
     if request.method == 'POST':
@@ -45,6 +44,7 @@ def custom_login(request):
             return redirect(reverse('custom_login'))
 
     return render(request, 'v1/login.html')
+
 
 @login_required
 def user_logout(request):
