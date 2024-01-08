@@ -1,28 +1,25 @@
 {% extends 'v1/base.html' %}
 
 {% block start %}
-    <div class="container mt-5">
-        <h2 class="text-info">View Profile</h2>
-        <div class="mb-3">
-            <strong>Name:</strong> {{ profile.name }}
-        </div>
-        <div class="mb-3">
-            <strong>Bio:</strong> {{ profile.bio }}
-        </div>
-        <div class="mb-3">
-            <strong>Address:</strong> {{ profile.address }}
-        </div>
-        <img src="{{ profile.image.url }}" class="img-fluid" alt="Profile Image">
-        <div class="mt-3">
-            {% if request.user != profile.user %}
-                {% if profile.user in request.user.userprofile.followers.all %}
-                    <a href="{% url 'unfollow_profile' profile.user.username %}" class="btn btn-danger">Unfollow</a>
-                {% else %}
-                    <a href="{% url 'follow_profile' profile.user.username %}" class="btn btn-success">Follow</a>
-                {% endif %}
-            {% endif %}
-            <a href="{% url 'edit_profile' %}" class="btn btn-warning">Edit Profile</a>
-            <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete Profile</a>
-        </div>
+<div class="container mt-5">
+    <h2 class="text-info">View Profile</h2>
+    <div class="mb-3">
+        <strong>Bio:</strong> {{ profile.bio }}
     </div>
+    <div class="mb-3">
+        <strong>Address:</strong> {{ profile.address }}
+    </div>
+    <img src="{{ profile.image.url }}" class="img-fluid" alt="Profile Image">
+    <div class="mt-3">
+        {% if request.user != profile.user %}
+        {% if profile.user in request.user.userprofile.followers.all %}
+        <a href="{% url 'unfollow_profile' profile.user.username %}" class="btn btn-danger">Unfollow</a>
+        {% else %}
+        <a href="{% url 'follow_profile' profile.user.username %}" class="btn btn-success">Follow</a>
+        {% endif %}
+        {% endif %}
+        <a href="{% url 'edit_profile' %}" class="btn btn-warning">Edit Profile</a>
+        <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete Profile</a>
+    </div>
+</div>
 {% endblock %}

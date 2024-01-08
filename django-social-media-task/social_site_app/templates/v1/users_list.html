@@ -1,4 +1,3 @@
-<!-- v1/users_list.html -->
 {% extends 'v1/base.html' %}
 
 {% block start %}
@@ -10,23 +9,34 @@
         <li>
             <a href="{% url 'view_other_profile' email=other_user.email %}">{{ other_user.email }}</a>
 
+            {% if other_user.id in following_ids %}
+            <button class="follow-btn btn btn-primary" data-email="{{ other_user.email }}" style="display:none;">
+                Follow
+            </button>
+            <button class="unfollow-btn btn btn-danger" data-email="{{ other_user.email }}">
+                Unfollow
+            </button>
+            {% else %}
             <button class="follow-btn btn btn-primary" data-email="{{ other_user.email }}">
                 Follow
             </button>
             <button class="unfollow-btn btn btn-danger" data-email="{{ other_user.email }}" style="display:none;">
                 Unfollow
             </button>
+            {% endif %}
         </li>
         {% endif %}
         {% endfor %}
     </ul>
 </div>
 
-<!-- Add the following script to handle dynamic button changes -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.follow-btn, .unfollow-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
+    document.addEventListener('DOMContentLoaded', function ()
+    {
+        document.querySelectorAll('.follow-btn, .unfollow-btn').forEach(btn =>
+        {
+            btn.addEventListener('click', function ()
+            {
                 const email = this.getAttribute('data-email');
                 console.log(`Button clicked for user with email: ${email}`);
 
@@ -34,10 +44,12 @@
                 const unfollowBtn = document.querySelector(`.unfollow-btn[data-email="${email}"]`);
 
                 let url, method;
-                if (followBtn.style.display !== 'none') {
+                if (followBtn.style.display !== 'none')
+                {
                     url = `{% url 'follow_profile' email='__email__' %}`;
                     method = 'POST';
-                } else {
+                } else
+                {
                     url = `{% url 'unfollow_profile' email='__email__' %}`;
                     method = 'DELETE';  // Change the method to DELETE for unfollow
                 }

@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 
@@ -7,10 +8,11 @@ from social_site_app.models.profile import UserProfile
 from v1.social_site_app.forms import UserProfileForm, UserPostForm
 
 
-@login_required
+@login_required(login_url='/')
 def users_list(request):
     users = get_user_model().objects.exclude(id=request.user.id)
-    return render(request, 'v1/users_list.html', {'users': users})
+    following_ids = request.user.userprofile.followers.values_list('id', flat=True)
+    return render(request, 'v1/users_list.html', {'users': users, 'following_ids': following_ids})
 
 
 @login_required(login_url='/')
@@ -52,7 +54,6 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
 
-            # Add logic to handle editing the list of users the user is following
             followers_ids = request.POST.getlist('followers')
             profile.followers.set(followers_ids)
 
@@ -70,12 +71,9 @@ def edit_profile(request):
 # views.py
 @login_required(login_url='/')
 def view_other_profile(request, email):
-    # Check if the requested email belongs to the logged-in user
     if request.user.is_authenticated and request.user.email == email:
-        # If it's the logged-in user, show their own profile
         user_profile = UserProfile.objects.get(user=request.user)
     else:
-        # If it's another user, show their profile
         user = get_object_or_404(get_user_model(), email=email)
         user_profile = get_object_or_404(UserProfile, user=user)
 
@@ -87,9 +85,7 @@ def delete_profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
-        # Handle unfollowing logic before deleting the profile
         request.user.userprofile.followers.clear()
-
         profile.delete()
         messages.success(request, 'Profile deleted successfully.')
         return redirect('welcome')
