@@ -35,18 +35,21 @@ class CustomUserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    '''
+    """
         This model represents a user with email as the unique identifier.
         Additional fields include first name, last name, and mobile.
         The custom user manager is used for managing user creation.
-    '''
+    """
     username = None
     email = models.EmailField(_('email address'), unique=True)
-    first_name = models.CharField(_('first name'), max_length=30, blank=True)
-    last_name = models.CharField(_('last name'), max_length=30, blank=True)
+    first_name = models.CharField(_('first name'), max_length=30)
+    last_name = models.CharField(_('last name'), max_length=30)
     mobile = models.CharField(_('mobile'), max_length=15, blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
     objects = CustomUserManager()
+
+    def __str__(self):
+        return self.email

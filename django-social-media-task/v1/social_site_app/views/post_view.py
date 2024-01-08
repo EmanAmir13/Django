@@ -3,58 +3,66 @@ from django.contrib.auth.decorators import login_required
 
 from social_site_app.models import UserPost
 from v1.social_site_app.forms import UserPostForm
+from django.http import Http404
+from django.contrib import messages
 
 
 @login_required
 def create_post(request):
-    if request.method == 'POST':
-        form = UserPostForm(request.POST, request.FILES)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.user = request.user
-            post.save()
-            return redirect('welcome')
-    else:
+    if not request.method == 'POST':
         form = UserPostForm()
-
-    return render(request, 'v1/create_post.html', {'form': form})
+    form = UserPostForm(request.POST, request.FILES)
+    if not form.is_valid():
+        return render(request, 'v1/create_post.html', {'form': form})
+    post = form.save(commit=False)
+    post.user = request.user
+    post.save()
+    messages.success(request, "Post created successfully.")
+    return redirect('view_own_posts')
 
 
 @login_required
 def view_posts(request):
     following_users = request.user.userprofile.followers.all()
-    posts = UserPost.objects.filter(user__in=following_users).order_by('-id')
+    posts = UserPost.objects.filter(user__in=following_users).order_by('created', 'modified')
 
     return render(request, 'v1/view_posts.html', {'posts': posts})
 
 
 @login_required
 def view_own_posts(request):
-    posts = UserPost.objects.filter(user=request.user).order_by('-id')
+    posts = UserPost.objects.filter(user=request.user).order_by('-created', '-modified')
     return render(request, 'v1/view_own_posts.html', {'posts': posts})
 
 
 @login_required
 def edit_post(request, post_id):
-    post = get_object_or_404(UserPost, id=post_id, user=request.user)
+    try:
+        post = get_object_or_404(UserPost, id=post_id, user=request.user)
+    except Http404:
+        messages.error(request, "Post not found.")
+        return redirect('view_own_posts')
 
-    if request.method == 'POST':
-        form = UserPostForm(request.POST, request.FILES, instance=post)
-        if form.is_valid():
-            form.save()
-            return redirect('view_own_posts')
-    else:
+    if not request.method == 'POST':
         form = UserPostForm(instance=post)
-
-    return render(request, 'v1/edit_post.html', {'form': form, 'post': post})
+    form = UserPostForm(request.POST, request.FILES, instance=post)
+    if not form.is_valid():
+        return render(request, 'v1/edit_post.html', {'form': form, 'post': post})
+    form.save()
+    messages.success(request, "Post edited successfully.")
+    return redirect('view_own_posts')
 
 
 @login_required
 def delete_post(request, post_id):
-    post = get_object_or_404(UserPost, id=post_id, user=request.user)
-
-    if request.method == 'POST':
-        post.delete()
+    try:
+        post = get_object_or_404(UserPost, id=post_id, user=request.user)
+    except Http404:
+        messages.error(request, "Post not found.")
         return redirect('view_own_posts')
 
-    return render(request, 'v1/delete_post.html', {'post': post})
+    if not request.method == 'POST':
+        return render(request, 'v1/delete_post.html', {'post': post})
+    post.delete()
+    messages.success(request, "Post deleted successfully.")
+    return redirect('view_own_posts')

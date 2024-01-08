@@ -2,6 +2,13 @@
 
 {% block start %}
     <div class="container mt-5">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         <h2 class="text-center mb-4">View Posts</h2>
         <div class="row justify-content-center">
             {% for post in posts %}
@@ -12,6 +19,7 @@
                         </div>
                         <div class="card-body text-center">
                             <p class="card-text">{{ post.post_explanation }}</p>
+                            <p class="card-text">{{ post.modified|date:"F d, Y H:i" }}</p>  {# Display modified date #}
                             {% if post.post_image %}
                                 <img src="{{ post.post_image.url }}" class="img-fluid rounded" alt="Post Image" style="max-height: 200px; object-fit: cover;">
                             {% endif %}

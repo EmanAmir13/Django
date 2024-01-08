@@ -1,12 +1,19 @@
 {% extends 'v1/base.html' %}
 
 {% block start %}
-    <div class="container mt-5">
-        <h2>Delete Post</h2>
-        <p>Are you sure you want to delete this post?</p>
-        <form method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Delete Post</button>
-        </form>
+<div class="container mt-5">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
     </div>
+    {% endfor %}
+    {% endif %}
+    <h2>Delete Post</h2>
+    <p>Are you sure you want to delete this post?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete Post</button>
+    </form>
+</div>
 {% endblock %}

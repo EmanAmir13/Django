@@ -2,6 +2,13 @@
 
 {% block start %}
 <div class="container mt-5">
+    {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
     <h2 class="text-primary">Edit Profile</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}

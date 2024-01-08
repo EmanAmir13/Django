@@ -2,6 +2,13 @@
 
 {% block start %}
 <div class="container mt-5">
+    {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
     <h2 class="text-info">View Profile</h2>
     <div class="mb-3">
         <strong>Bio:</strong> {{ profile.bio }}
@@ -9,7 +16,11 @@
     <div class="mb-3">
         <strong>Address:</strong> {{ profile.address }}
     </div>
-    <img src="{{ profile.image.url }}" class="img-fluid" alt="Profile Image">
+    {% if profile.image %}
+        <img src="{{ profile.image.url }}" class="img-fluid" alt="Profile Image">
+    {% else %}
+        <p>No profile image available</p>
+    {% endif %}
     <div class="mt-3">
         {% if request.user != profile.user %}
         {% if profile.user in request.user.userprofile.followers.all %}
@@ -19,7 +30,6 @@
         {% endif %}
         {% endif %}
         <a href="{% url 'edit_profile' %}" class="btn btn-warning">Edit Profile</a>
-        <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete Profile</a>
     </div>
 </div>
 {% endblock %}

@@ -9,6 +9,13 @@
         <p>You are not logged in.</p>
         {% endif %}
 <div class="row">
+    {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
     <div class="col-md-3">
         <div class="list-group">
             {% if user_profile %}

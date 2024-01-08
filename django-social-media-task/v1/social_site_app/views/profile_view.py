@@ -1,11 +1,10 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 
 from social_site_app.models.profile import UserProfile
-from v1.social_site_app.forms import UserProfileForm, UserPostForm
+from v1.social_site_app.forms import UserProfileForm
 
 
 @login_required(login_url='/')
@@ -23,16 +22,18 @@ def create_profile(request):
         messages.warning(request, 'Profile already exists. Edit your profile instead.')
         return redirect('edit_profile')
 
-    if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES)
-        if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = request.user
-            profile.save()
-            messages.success(request, 'Profile created successfully.')
-            return redirect('view_profile')
-    else:
+    if not request.method == 'POST':
         form = UserProfileForm()
+
+    form = UserProfileForm(request.POST, request.FILES)
+    if not form.is_valid():
+        messages.error(request, 'Error in the form. Please check and try again.')
+    else:
+        profile = form.save(commit=False)
+        profile.user = request.user
+        profile.save()
+        messages.success(request, 'Profile created successfully.')
+        return redirect('view_profile')
 
     return render(request, 'v1/create_profile.html', {'form': form})
 
@@ -49,23 +50,21 @@ def view_profile(request):
 def edit_profile(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
 
-    if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=profile)
-        if form.is_valid():
-            form.save()
-
-            followers_ids = request.POST.getlist('followers')
-            profile.followers.set(followers_ids)
-
-            if created:
-                messages.success(request, 'Profile created successfully.')
-            else:
-                messages.success(request, 'Profile updated successfully.')
-            return redirect('view_profile')
-    else:
+    if not request.method == 'POST':
         form = UserProfileForm(instance=profile)
 
-    return render(request, 'v1/edit_profile.html', {'form': form})
+    form = UserProfileForm(request.POST, request.FILES, instance=profile)
+    if not form.is_valid():
+        return render(request, 'v1/edit_profile.html', {'form': form})
+
+    form.save()
+    followers_ids = request.POST.getlist('followers')
+    profile.followers.set(followers_ids)
+    if created:
+        messages.success(request, 'Profile created successfully.')
+    else:
+        messages.success(request, 'Profile updated successfully.')
+    return redirect('view_profile')
 
 
 # views.py
@@ -78,16 +77,3 @@ def view_other_profile(request, email):
         user_profile = get_object_or_404(UserProfile, user=user)
 
     return render(request, 'v1/other_user_profile.html', {'user_profile': user_profile})
-
-
-@login_required(login_url='/')
-def delete_profile(request):
-    profile = get_object_or_404(UserProfile, user=request.user)
-
-    if request.method == 'POST':
-        request.user.userprofile.followers.clear()
-        profile.delete()
-        messages.success(request, 'Profile deleted successfully.')
-        return redirect('welcome')
-
-    return render(request, 'v1/delete_profile.html', {'profile': profile})

@@ -2,6 +2,13 @@
 
 {% block start %}
     <div class="container mt-5">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         <h2 class="text-danger">Delete Profile</h2>
         <p class="lead">Are you sure you want to delete your profile?</p>
         <form method="post">

@@ -5,22 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="793db0ac-252b-4dd2-961b-df072b694fa2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/static/profile_images/default_img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/Django.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Django.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/post_images/asd@gmail.com/5beaef89a03a44d8849295d7b2ef2f12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/post_images/asd@gmail.com/9e57459c6cb64ebda943199701fdf21e.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/post_images/asd@gmail.com/c6d6bf7c7b8e4a9ea47f186cc056bba6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/post_images/asd@gmail.com/dd139ff31f6748adb5a9d08730f36261.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/post_images/new@gmail.com/460bb178172c4a90b6ad698ba122112e.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/post_images/new@gmail.com/9ee7f733c47646a6ab97084519ebaf3b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_media/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_media/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/models/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/models/post.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/models/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/models/profile.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/social_site_app/models/user_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/models/user_email.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/create_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/create_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/create_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/create_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/delete_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/delete_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/delete_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/delete_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/edit_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/edit_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/edit_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/edit_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/other_user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/other_user_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/users_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/users_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/view_own_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/view_own_posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/view_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/view_posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/view_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/view_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/welcome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/social_site_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/social_site_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v1/social_site_app/views/post_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/views/post_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/social_site_app/views/profile_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/views/profile_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v1/social_site_app/views/user_authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/views/user_authentication.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/AUTHORS.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/INSTALLER" beforeDir="false" />
@@ -635,5 +649,8 @@
       <updated>1703740218375</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
 </project>

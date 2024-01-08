@@ -12,11 +12,11 @@ def generate_uuid_filename(instance, filename):
 
 
 class UserProfile(models.Model):
-    '''
+    """
        This model represents additional information about a user, such as bio,
        profile image, and address. The user field establishes a one-to-one
        relationship with the built-in user model.
-    '''
+    """
     user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
     followers = models.ManyToManyField(get_user_model(), related_name='following', blank=True)
     bio = models.TextField(blank=True, null=True)
