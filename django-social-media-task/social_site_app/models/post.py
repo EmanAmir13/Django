@@ -20,7 +20,7 @@ class UserPost(models.Model):
     including an explanation and an optional image.
     The user field establishes a foreign key relationship with the built-in user model.
     """
-    user = models.ForeignKey(get_user_model(), related_name='user_post', on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), related_name='user_posts', on_delete=models.CASCADE)
     post_explanation = models.TextField(null=True)
     post_image = models.ImageField(upload_to=generate_uuid_filename, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)

@@ -8,19 +8,8 @@
       <change beforePath="$PROJECT_DIR$/../.idea/Django.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Django.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_media/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_media/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_site_app/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/models/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/social_site_app/models/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/models/post.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_site_app/models/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/models/profile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_site_app/models/user_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social_site_app/templates/v1/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/social_site_app/templates/v1/welcome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1/social_site_app/views/followers_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/views/followers_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1/social_site_app/views/post_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/views/post_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1/social_site_app/views/profile_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/views/profile_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1/social_site_app/views/user_authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/social_site_app/views/user_authentication.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/AUTHORS.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/INSTALLER" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../first-project/Lib/site-packages/pip-23.2.1.dist-info/LICENSE.txt" beforeDir="false" />
