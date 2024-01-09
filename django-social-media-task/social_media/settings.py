@@ -60,8 +60,8 @@ WSGI_APPLICATION = 'social_media.wsgi.application'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME':  os.path.join(BASE_DIR, os.environ.get('DB_NAME', 'db.sqlite3')),
     }
 }
 

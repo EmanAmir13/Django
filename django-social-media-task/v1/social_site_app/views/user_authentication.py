@@ -20,13 +20,13 @@ def register_user(request):
         return render(request, "v1/register.html", {'form': form})
 
     form = UserForm(request.POST)
-    if form.is_valid():
-        form.save()
-        messages.success(request, 'Registration successful. Welcome back!')
-        return redirect(reverse('sign_in'))
-    else:
+    if not form.is_valid():
         messages.error(request, f"{form.errors}")
         return redirect(reverse('register_user'))
+
+    form.save()
+    messages.success(request, 'Registration successful. Welcome back!')
+    return redirect(reverse('sign_in'))
 
 
 def sign_in(request):

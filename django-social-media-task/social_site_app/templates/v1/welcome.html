@@ -1,21 +1,22 @@
 {% extends 'v1/base.html' %}
 
 {% block start %}
-        <h2>Lets Build Together</h2>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<h2>Lets Build Together</h2>
 
-        {% if user.is_authenticated %}
-        <p>Welcome, {{ user.email }}!</p>
-        {% else %}
-        <p>You are not logged in.</p>
-        {% endif %}
+{% if user.is_authenticated %}
+<p>Welcome, {{ user.email }}!</p>
+{% else %}
+<p>You are not logged in.</p>
+{% endif %}
 <div class="row">
-    {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
+
     <div class="col-md-3">
         <div class="list-group">
             {% if user_profile %}
@@ -48,7 +49,7 @@
             <h1>Welcome To Social Media Site lets explore</h1>
             <p>Crete Your profile first</p>
             <a href="{% url 'create_profile' %}" class="btn btn-primary">Create Profile</a>
-         {% endif %}
+            {% endif %}
         </div>
     </div>
 

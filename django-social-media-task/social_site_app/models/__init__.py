@@ -1,3 +1,3 @@
-from .user_email import User
+from .user import User
 from .profile import *
 from .post import *

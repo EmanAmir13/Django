@@ -7,13 +7,17 @@ from django.http import Http404
 from django.contrib import messages
 
 
-@login_required
+@login_required(login_url='/')
 def create_post(request):
     if not request.method == 'POST':
         form = UserPostForm()
+        return render(request, 'v1/create_post.html', {'form': form})
+
     form = UserPostForm(request.POST, request.FILES)
+
     if not form.is_valid():
         return render(request, 'v1/create_post.html', {'form': form})
+
     post = form.save(commit=False)
     post.user = request.user
     post.save()
@@ -21,21 +25,21 @@ def create_post(request):
     return redirect('view_own_posts')
 
 
-@login_required
+@login_required(login_url='/')
 def view_posts(request):
     following_users = request.user.userprofile.followers.all()
-    posts = UserPost.objects.filter(user__in=following_users).order_by('created', 'modified')
+    posts = UserPost.objects.filter(user__in=following_users).order_by('created')
 
     return render(request, 'v1/view_posts.html', {'posts': posts})
 
 
-@login_required
+@login_required(login_url='/')
 def view_own_posts(request):
-    posts = UserPost.objects.filter(user=request.user).order_by('-created', '-modified')
+    posts = UserPost.objects.filter(user=request.user).order_by('created')
     return render(request, 'v1/view_own_posts.html', {'posts': posts})
 
 
-@login_required
+@login_required(login_url='/')
 def edit_post(request, post_id):
     try:
         post = get_object_or_404(UserPost, id=post_id, user=request.user)
@@ -45,15 +49,19 @@ def edit_post(request, post_id):
 
     if not request.method == 'POST':
         form = UserPostForm(instance=post)
+        return render(request, 'v1/edit_post.html', {'form': form, 'post': post})
+
     form = UserPostForm(request.POST, request.FILES, instance=post)
+
     if not form.is_valid():
         return render(request, 'v1/edit_post.html', {'form': form, 'post': post})
+
     form.save()
     messages.success(request, "Post edited successfully.")
     return redirect('view_own_posts')
 
 
-@login_required
+@login_required(login_url='/')
 def delete_post(request, post_id):
     try:
         post = get_object_or_404(UserPost, id=post_id, user=request.user)
@@ -63,6 +71,7 @@ def delete_post(request, post_id):
 
     if not request.method == 'POST':
         return render(request, 'v1/delete_post.html', {'post': post})
+
     post.delete()
     messages.success(request, "Post deleted successfully.")
     return redirect('view_own_posts')
